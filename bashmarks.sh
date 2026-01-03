@@ -129,13 +129,15 @@ function _purge_line {
     fi
 }
 
-# bind completion command for g,p,d to _comp
+# bind completion command to mark + legacy commands
 if [ "$ZSH_VERSION" ]; then
+    compctl -K _compzsh mark
     compctl -K _compzsh g
     compctl -K _compzsh p
     compctl -K _compzsh d
 else
     shopt -s progcomp
+    complete -F _comp mark
     complete -F _comp g
     complete -F _comp p
     complete -F _comp d

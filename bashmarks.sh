@@ -13,8 +13,7 @@ function mark {
         _bookmark_name_valid "$@"
         if [ -z "$exit_message" ]; then
             _purge_line "$SDIRS" "^$1="
-            CURDIR=$(echo "$PWD" | sed "s#^$HOME#\\$HOME#g")
-            echo "$1=\"$CURDIR\"" >> "$SDIRS"
+            echo "$1=\"$PWD\"" >> "$SDIRS"
         fi
     }
 
